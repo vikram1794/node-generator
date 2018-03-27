@@ -1,0 +1,21 @@
+{
+  "name": "node-generator",
+  "version": "1.0.0",
+  "description": "Making a Node Generator command line interface",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app"
+  },
+  "bin": {
+    "ngr": "./app.js"
+  },
+  "author": "Vikram Aishwarya Param",
+  "license": "ISC",
+  "dependencies": {
+    "bluebird": "^3.5.1",
+    "chalk": "^2.3.2",
+    "commander": "^2.15.0",
+    "figlet": "^1.2.0",
+    "inquirer": "^5.1.0"
+  }
+}
