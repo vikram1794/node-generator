@@ -1,6 +1,6 @@
 # Node Generator
 
-Node Genrator is a CLI tool that can generate NodeJS directory structure with express framework. Node Genrator generates project structure based on standard service side development, for more details on how to use Node Generator follow the [link](https://github.com/as-ajitsingh/alexa-nodejs-boilerplate/blob/master/README.md). Node Genrator also provides functionality to **Add Rotes, Models, Api's, Functions** from CLI itself. So no overhead of writing basic code everytime you add a new functionality to your project. 
+Node Genrator is a CLI tool that can generate NodeJS directory structure with express framework. Node Genrator generates project structure based on standard service side development, for more details on how to use Node Generator follow the [link](https://github.com/vikram1794/node-generator/README.md). Node Genrator also provides functionality to **Add Rotes, Models, Api's, Functions** from CLI itself. So no overhead of writing basic code everytime you add a new functionality to your project. 
 
 ## Installation
   
