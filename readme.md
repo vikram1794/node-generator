@@ -1,14 +1,14 @@
-# Node Generator
+# Noger
 
-Node Genrator is a CLI tool that can generate NodeJS directory structure with express framework. Node Genrator generates project structure based on standard service side development, for more details on how to use Node Generator follow the [link](https://github.com/vikram1794/node-generator/blob/master/readme.md). Node Genrator also provides functionality to **Add Rotes, Models, Api's, Functions** from CLI itself. So no overhead of writing basic code everytime you add a new functionality to your project. 
+Node Genrator is a CLI tool that can generate NodeJS directory structure with express framework. Noger generates project structure based on standard service side development, for more details on how to use Noger follow the [link](https://github.com/vikram1794/node-generator/blob/master/readme.md). Node Genrator also provides functionality to **Add Rotes, Models, Api's, Functions** from CLI itself. So no overhead of writing basic code everytime you add a new functionality to your project. 
 
 ## Installation
   
- To use Node Genrator you must have [**nodejs**](https://nodejs.org/) and [**npm**](https://nodejs.org/) preinstalled in your system. To install Node Genrator globally use 
+ To use Noger you must have [**nodejs**](https://nodejs.org/) and [**npm**](https://nodejs.org/) preinstalled in your system. To install Noger globally use 
 
    `npm install -g noger`
 
-This will install Node Genrator globally so that it can be used from anywhere in the system.
+This will install Noger globally so that it can be used from anywhere in the system.
 
 ## How to use
 

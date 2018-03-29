@@ -1,6 +1,6 @@
 {
-  "name": "node-generator",
-  "version": "1.0.0",
+  "name": "noger",
+  "version": "1.0.3",
   "description": "Making a Node Generator command line interface",
   "main": "app.js",
   "scripts": {
@@ -10,7 +10,7 @@
     "ngr": "./app.js"
   },
   "author": "Vikram Aishwarya Param",
-  "license": "ISC",
+  "license": "Apache-2.0",
   "dependencies": {
     "bluebird": "^3.5.1",
     "chalk": "^2.3.2",
