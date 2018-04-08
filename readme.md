@@ -1,6 +1,6 @@
 # Noger
 
-Node Genrator is a CLI tool that can generate NodeJS directory structure with express framework. Noger generates project structure based on standard service side development, for more details on how to use Noger follow the [link](https://github.com/vikram1794/node-generator/blob/master/readme.md). Node Genrator also provides functionality to **Add Rotes, Models, Api's, Functions** from CLI itself. So no overhead of writing basic code everytime you add a new functionality to your project. 
+Noger is a CLI tool that can generate NodeJS directory structure with express framework. Noger generates project structure based on standard service side development, for more details on how to use Noger follow the [link](https://github.com/vikram1794/node-generator/blob/master/readme.md). Noger also provides functionality to **Add Rotes, Models, Api's, Functions** from CLI itself. So no overhead of writing basic code everytime you add a new functionality to your project. 
 
 ## Installation
   

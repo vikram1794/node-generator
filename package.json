@@ -1,6 +1,6 @@
 {
   "name": "noger",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Making a Node Generator command line interface",
   "main": "app.js",
   "scripts": {
