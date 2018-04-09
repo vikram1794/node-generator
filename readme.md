@@ -18,23 +18,23 @@ This will install Noger globally so that it can be used from anywhere in the sys
 
  - To add a new route into existing project
 
-    `ngr generate route <your route name>`       `or`        `ngr gr <your route name>`
+    `ngr route <your route name>`       `or`        `ngr r <your route name>`
 
  - To add a new route but not create a new model 
 
-    `ngr generate route <your route name> --model false`       `or`        `ngr gr <your route name> -m false`
+    `ngr route <your route name> --model false`       `or`        `ngr r <your route name> -m false`
 
  - To add a model into existing project use
 
-    `ngr generate model <your model name>`        `or`        `ngr gm <your model name>`
+    `ngr model <your model name>`        `or`        `ngr m <your model name>`
 
  - To add a api to existing project 
 
-    `ngr generate api --path <Api path> --name <name of the function> --type <can be method type GET,POST,PUT,DELETE> --route <name of route> `
+    `ngr api --path <Api path> --name <name of the function> --type <can be method type GET,POST,PUT,DELETE> --route <name of route> `
 
     `or`
 
-    `ngr gapi -p <Api path> -n <name of the function> -t <can be method type GET,POST,PUT,DELETE> -r <name of route> `
+    `ngr api -p <Api path> -n <name of the function> -t <can be method type GET,POST,PUT,DELETE> -r <name of route> `
 
 
 ## License
