@@ -18,11 +18,11 @@ This will install Noger globally so that it can be used from anywhere in the sys
 
  - To add a new route into existing project
 
-    `ngr genrate route <your route name>`       `or`        `ngr gr <your route name>`
+    `ngr generate route <your route name>`       `or`        `ngr gr <your route name>`
 
  - To add a new route but not create a new model 
 
-    `ngr genrate route <your route name> --model false`       `or`        `ngr gr <your route name> -m false`
+    `ngr generate route <your route name> --model false`       `or`        `ngr gr <your route name> -m false`
 
  - To add a model into existing project use
 
