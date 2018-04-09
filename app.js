@@ -23,7 +23,7 @@ const questions = [
 ]
 
 commander
-    .version('1.0.5')
+    .version('1.0.6')
     .option('-v, --version ', 'version')
     .description('Noger framework');
 
@@ -46,16 +46,16 @@ commander.command('create <name>')
         });
     });
 
-commander.command('generate route <routeName>')
-    .alias('gr')
+commander.command('route <routeName>')
+    .alias('r')
     .option('-m, --model <value>', 'Model needed or not', "true")
     .action((routeName, cmd) => {
         var modelStatus = (cmd.model === "true");
         createRoute.createRoutes(routeName, modelStatus).then((result) => console.log(result));
     });
 
-commander.command('generate model <modelName>')
-    .alias('gm')
+commander.command('model <modelName>')
+    .alias('m')
     .action((modelName) => {
         createModel.addProperty().then((properties) => {
             createModel.createModelFile(modelName, properties)
@@ -65,7 +65,7 @@ commander.command('generate model <modelName>')
         });
     });
 
-commander.command('generate api')
+commander.command('api')
     .alias('gapi')
     .option('-n, --name <name>', 'API fuction Name')
     .option('-t, --type <type>', 'Function type')
