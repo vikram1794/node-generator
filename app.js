@@ -23,7 +23,7 @@ const questions = [
 ]
 
 commander
-    .version('1.0.0')
+    .version('1.0.5')
     .option('-v, --version ', 'version')
     .description('Node Generator framework');
 
@@ -46,7 +46,7 @@ commander.command('create <name>')
         });
     });
 
-commander.command('genrate route <routeName>')
+commander.command('generate route <routeName>')
     .alias('gr')
     .option('-m, --model <value>', 'Model needed or not', "true")
     .action((routeName, cmd) => {
@@ -67,10 +67,10 @@ commander.command('generate model <modelName>')
 
 commander.command('generate api')
     .alias('gapi')
-    .option('-n --name <name>', 'API fuction Name')
-    .option('-t --type <type>', 'Function type')
-    .option('-r --route <route>', 'Route Name')
-    .option('-p --path <path>', 'API Name')
+    .option('-n, --name <name>', 'API fuction Name')
+    .option('-t, --type <type>', 'Function type')
+    .option('-r, --route <route>', 'Route Name')
+    .option('-p, --path <path>', 'API Name')
     .action((cmd) => {
         createApi.createApiRoute(cmd.name, cmd.type, cmd.route, cmd.path).then((result => {
             console.log(result);
