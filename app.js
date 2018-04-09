@@ -25,7 +25,7 @@ const questions = [
 commander
     .version('1.0.5')
     .option('-v, --version ', 'version')
-    .description('Node Generator framework');
+    .description('Noger framework');
 
 
 
