@@ -1,6 +1,6 @@
 {
   "name": "noger",
-  "version": "1.0.4",
+  "version": "1.1.1",
   "description": "Making a Node Generator command line interface",
   "main": "app.js",
   "scripts": {
@@ -9,12 +9,14 @@
   "bin": {
     "ngr": "./app.js"
   },
+  "keywords": ["noger", "noger-ui", "tool", "express", "rest", "generator" , "api"],
   "author": "Vikram Aishwarya Param",
   "license": "Apache-2.0",
   "dependencies": {
     "bluebird": "^3.5.1",
     "chalk": "^2.3.2",
     "commander": "^2.15.0",
+    "ejs": "^2.6.1",
     "figlet": "^1.2.0",
     "inquirer": "^5.1.0"
   }

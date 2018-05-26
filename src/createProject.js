@@ -1,5 +1,5 @@
 const fs = require('fs');
-const Promise= require('bluebird');
+const Promise = require('bluebird');
 const chalk = require('chalk');
 
 const createModel = require('./createModel');
@@ -42,6 +42,9 @@ const router = express.Router();
 const database = require('./config/database.config');           //database configuration file
 const routes = require('./routes/routes');
 
+const nogerFile = require('./noger.json');
+const nogerUi = require('noger-ui');
+
 app.use(cors());
 app.use(bodyParser.json());
 
@@ -52,6 +55,9 @@ const port = 3000;                                              // The port at w
 const connect = mongoose.connect(url).then((db) => {
     console.log("Connected correctly to server");
 }, (err) => { console.log(err); });
+
+//Calling nogerUi
+nogerUi.setUp(app, nogerFile, port);
 
 routes.setUp(app,router);
 
@@ -90,8 +96,25 @@ function createPackageJson(projectName, author, desc) {
         "body-parser": "*",
         "express": "*",
         "cors": "*",
-        "mongoose": "*"
+        "mongoose": "*",
+        "ejs": "*",
+        "noger-ui": "*"
     }
+}`          , (err) => {
+                if (err) reject(chalk.red(err));
+                else resolve(chalk.green('SUCCESS'));
+            })
+    });
+}
+
+function createNogerJsonFile(name) {
+    return new Promise((resolve, reject) => {
+        fs.writeFile(process.cwd() + '/' + name  + '/noger.json',
+            `{
+    "route": [],
+    "path": [],
+    "type": [],
+    "name": [] 
 }`          , (err) => {
                 if (err) reject(chalk.red(err));
                 else resolve(chalk.green('SUCCESS'));
@@ -101,5 +124,6 @@ function createPackageJson(projectName, author, desc) {
 
 module.exports = {
     createProject: createProject,
-    createPackageJson: createPackageJson
+    createPackageJson: createPackageJson,
+    createNogerJsonFile: createNogerJsonFile
 }

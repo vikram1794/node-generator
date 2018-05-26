@@ -1,45 +1,58 @@
 const fs = require('fs');
 const functionUtil = require('./util/functions.util');
-const Promise= require('bluebird');
+const Promise = require('bluebird');
 const chalk = require('chalk');
 
 function createApiRoute(name, type, routeName, pathName) {
     return new Promise((resolve, reject) => {
-        fs.readFile(process.cwd() + '/routes/routes.js', function read(err, data) {
-            if (err) {
-                reject(chalk.red(err));
+        fs.exists(process.cwd() + `/service/${routeName}.service.js`, (exists) => {
+            if (!exists) {
+                reject(new Error("Route doesn't exist"));
             }
-            var file_content = data.toString();
-            functionUtil.appendingData(file_content.indexOf("{") + 1, process.cwd() + '/routes/routes.js',
-                `
+            else {
+                fs.readFile(process.cwd() + '/routes/routes.js', function read(err, data) {
+                    if (err) {
+                        reject(chalk.red(err));
+                    }
+                    var file_content = data.toString();
+                    functionUtil.appendingData(file_content.indexOf("{") + 1, process.cwd() + '/routes/routes.js',
+                        `
     app.${type}('/${pathName}', ${routeName}Controller.${name});
-`)
+        `)
+                });
+                resolve(chalk.green('Not undefined'));
+            }
         });
-        resolve(chalk.green('Not undefined'));
+
     }).then(() => {
         let filePath = process.cwd() + `/service/${routeName}.service.js`;
-        return craetingConst(filePath, name, type, routeName)
+        return creatingConst(filePath, name, type, routeName)
     }).then(() => {
         let filePath = process.cwd() + `/service/${routeName}.service.js`;
         return creatingFunctionInService(filePath, name, type, routeName)
     }).then(() => {
         let filePath = process.cwd() + `/controller/${routeName}.controller.js`;
-        return craetingConst(filePath, name, type, routeName)
+        return creatingConst(filePath, name, type, routeName)
     }).then(() => {
         let filePath = process.cwd() + `/controller/${routeName}.controller.js`;
         return creatingFunctionInController(filePath, name, type, routeName)
     }).then(() => {
+        updatingNogerJsonFile(pathName, name, type, routeName);
+    }).then(() => {
         return chalk.green("Function created Successfully");
+    }).catch((err) => {
+        return chalk.red(err);
     });
 }
 
-function craetingConst(filePath, name, type, routeName) {
+function creatingConst(filePath, name, type, routeName) {
     return new Promise((resolve, reject) => {
         fs.readFile(filePath, function read(err, data) {
             if (err) {
                 reject(err);
             }
             var file_content = data.toString();
+
             let appendingData = '';
             if (file_content.lastIndexOf(`}`) - file_content.lastIndexOf(`{`) > 4) {
                 appendingData +=
@@ -97,6 +110,21 @@ function ${name} (req, res, next) {
 `));
         });
     })
+}
+
+function updatingNogerJsonFile(pathName, name, type, routeName) {
+    return new Promise((resolve, reject) => {
+        const nogerFile = require(process.cwd() + `/noger.json`);
+
+        nogerFile.route.push(routeName);
+        nogerFile.path.push(pathName);
+        nogerFile.type.push(type);
+        nogerFile.name.push(name);
+        fs.writeFile(process.cwd() + '/noger.json', JSON.stringify(nogerFile, undefined, 4), (err) => {
+            if (err) reject(chalk.red(err));
+            else resolve(chalk.green('SUCCESS'));
+        })
+    });
 }
 
 const createApi = {
